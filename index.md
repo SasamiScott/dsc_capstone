@@ -1,8 +1,6 @@
 ## Predicting Application Use to Reduce User Wait Time
 
-You can use the [editor on GitHub](https://github.com/SasamiScott/dsc_capstone/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Our goal for this project was to lower the user wait time when loading programs by predicting the next used application. In order to obtain the needed data, we created data collection libraries. Using this data, we created a Hidden Markov Model (HMM) and a Long Short-Term Memory (LSTM) model, but the latter proved to be better. Using LSTM, we can predict the application use time and expand this concept to more applications. We created multiple LSTM models with varying results, but ultimately chose a model that we think had potential. We decided on using the model that reported a __% accuracy.
 
 ### Markdown
 
