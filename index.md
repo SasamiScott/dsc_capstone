@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Predicting Application Use to Reduce User Wait Time
 
 You can use the [editor on GitHub](https://github.com/SasamiScott/dsc_capstone/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
