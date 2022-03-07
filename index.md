@@ -28,7 +28,7 @@ Now that we have the handle to the parent’s window and its identifier, we use 
 Now that we have the file directory, we must extract only the executable name. We want to do this because we do not want to output the user’s directory, as that can obtain sensitive information.
 
 <p align="center">
-    <img src="https://github.com/SasamiScott/dsc_capstone/blob/gh-pages/image8.png" alt>
+     <img src="{{site.baseurl | prepend: site.url}}image8.png" alt="image8" />
 </p>
 <p align="center">
     <em>Example of File Directory</em>
@@ -44,13 +44,13 @@ As noted above, we record only when a foreground window has changed. As such, we
 Using the data collector and input library we developed, we gathered just about 2 months worth of data from our group’s Windows 10 laptop from December 1st 2021 to January 30th 2022 over 63 collection periods. We collected foreground windows as ‘VALUE’ and recording time as ‘MEASUREMENT_TIME’. In total 68 unique applications were recorded with the most used app being Chome. 
 
 <p align="center">
-    <img src="https://github.com/SasamiScott/dsc_capstone/blob/gh-pages/image3.png" alt>
+    <img src="{{site.baseurl | prepend: site.url}}image3.png" alt="image3" />
 </p>
 
 This gave us 2469 rows or foreground windows collected. This totals to about 66 hours of total active use time.  
 
 <p align="center">
-    <img src="https://github.com/SasamiScott/dsc_capstone/blob/gh-pages/image4.png" alt>
+    <img src="{{site.baseurl | prepend: site.url}}image4.png" alt="image4" />
 </p>
 
 **Data Cleaning**  
@@ -65,7 +65,7 @@ Outliers were found after looking at the amount of time various apps were used a
 The first approach we tried was predicting a sequence of apps given a starting app. This would enable an underlying program to launch the predicted app in the background and decrease the wait of opening it for the user. A Hidden Markov Model (HMM) was developed for this prediction task. HMMs are statistical models that predict sequences using conditional probability, that being the odds that one event will occur given prior knowledge of another. This means that HMMs require a clear and consistent start from which all sequences start at. The HMM can visually be displayed as a decision tree, where each branch is selected based on which has the highest probability.
 
 <p align="center">
-    <img src="https://github.com/SasamiScott/dsc_capstone/blob/gh-pages/image6.png" alt>
+    <img src="{{site.baseurl | prepend: site.url}}image6.png" alt="image6" />
 </p>
 <p align="center">
     <em>Transition Diagram for the HMM with a Selection of 5 Common Apps</em>
@@ -74,7 +74,7 @@ The first approach we tried was predicting a sequence of apps given a starting a
 For our problem we built a first order HMM, the order here refers to how much recent history is used to make individual predictions. In a first order HMM while conditional probabilities are calculated using all the training data, it's the conditional probability based on 1 previous event. In our case that means the model knows the probability of opening Chrome given Zoom was just opened but not Chrome given two or more previous apps. While this gives the model less data, it's much more resource efficient which is important for the eventual application. First we added a ‘s0’ app to start off each data collection period so our model could see the probability of opening each app first. The data was then split into training and test sets with 80% of observed app pairs being used for training and 20% for testing. Training consisted of creating a (n x n) transition matrix where n is the number of apps in the training set. For a position of the matrix (A, B) it  contains the conditional probability of opening app A given app B calculated by: 
 
 <p align="center">
-    <img src="https://github.com/SasamiScott/dsc_capstone/blob/gh-pages/image1.png" alt>
+    <img src="{{site.baseurl | prepend: site.url}}image1.png" alt="image1" />
 </p>
 
 These probabilities were further verified by making sure the rows of the transition matrix summed to 1 as that would represent all possibilities of A. 
