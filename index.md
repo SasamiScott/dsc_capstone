@@ -17,12 +17,11 @@ Many windows can be layered on top of each other, but only one window will accep
 We start by obtaining the handle to the foreground window and checking that the handle is valid. After obtaining the handle, we obtain the identifier of the thread that created the specified window. We then enumerate the handle in the case where we are in a child window and want to obtain the parent window. We must do so because child windows might return an executable name that does not match the true executable name. Examples of this are built-in windows applications (calculator, calendar, weather). Without enumerating, we get a return of “ApplicationFrameHost” which does not tell us anything about the executable name. Because of this, enumerating through the child windows allows us to obtain the true executable name.
 
 <p align="center">
-    <img src="{{site.baseurl | prepend: site.url}}image11.png" alt="image11" />
+    <img src="{{site.baseurl}}/image11.png" alt="image11" />
 </p>
 <p align="center">
     <em>Example of Child vs. Parent Window</em>
 </p>
-
 
 Now that we have the handle to the parent’s window and its identifier, we use these as parameters to obtain a handle to open this process. If we have access to this process, we can extract information from it, such as its file directory. Note that we are not opening this process with limited access, such that we will not be able to open processes that demand higher access. We are using limited access because we do not want to access sensitive information. If we are in a situation where we do not have access to open a process, we do not proceed and will simply log the output as “Admin App.”
 
