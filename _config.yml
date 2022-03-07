@@ -1,7 +1,5 @@
 theme: jekyll-theme-cayman
----
-title: Predicting Application Use to Reduce User Wait Time
----
+title: Hi
 github:
   is_project_page: false
 description: Our goal for this project was to lower the user wait time when loading programs by predicting the next used application. In order to obtain the needed data, we created data collection libraries. Using this data, we created a Hidden Markov Model (HMM) and a Long Short-Term Memory (LSTM) model, but the latter proved to be better. Using LSTM, we can predict the application use time and expand this concept to more applications. We created multiple LSTM models with varying results, but ultimately chose a model that we think had potential. We decided on using the model that reported a __% accuracy.
