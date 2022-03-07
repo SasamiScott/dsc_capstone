@@ -28,7 +28,7 @@ Now that we have the handle to the parent’s window and its identifier, we use 
 Now that we have the file directory, we must extract only the executable name. We want to do this because we do not want to output the user’s directory, as that can obtain sensitive information.
 
 <p align="center">
-     <img src="{{site.baseurl | prepend: site.url}}image8.png" alt="image8" />
+    <img src="{{site.baseurl | prepend: site.url}}image8.png" alt="image8" />
 </p>
 <p align="center">
     <em>Example of File Directory</em>
